@@ -7,8 +7,8 @@
   >
   </app-button> -->
   <app-button
-    color="green"
-    btnValue="Add"
+    color="{{ showAddTask ? 'green' : 'red' }}"
+    btnValue="{{ showAddTask ? 'Add' : 'Close' }}"
     btnClass="btn"
     (btnClick)="toggleAddTask()"
   ></app-button>
