@@ -27,6 +27,41 @@ export class TasksComponent implements OnInit {
       },
     });
   }
+
+  deleteTask(task: Task) {
+    this.taskService.deleteTaskById(task.id).subscribe({
+      next: () => {
+        this.tasks = this.tasks.filter(
+          (oldTask) => oldTask.id !== task.id,
+        );
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.info('Task delete process completed');
+      },
+    });
+  }
+
+  onToggleTaskReminder(task: Task) {
+    this.taskService.updateTaskReminder(task).subscribe({
+      next: (updatedTask) => {
+        /**
+         * @summary
+         * Remember that we are working with objects not simple types.
+         * I mean objects passes by reference in JS
+         */
+        task.reminder = !task.reminder;
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.info('Task updated');
+      },
+    });
+  }
 }
 
 /**

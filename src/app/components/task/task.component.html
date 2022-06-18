@@ -1,7 +1,21 @@
-<div class="task">
+<div
+  (dblclick)="onToggleTask(task)"
+  [ngClass]="{ reminder: task.reminder }"
+  class="task"
+>
   <h3>
     {{ task.text }}
-    <fa-icon [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+    <fa-icon
+      [ngStyle]="{ color: 'red' }"
+      (click)="deleteTaskClicked(task)"
+      [icon]="faTimes"
+    ></fa-icon>
   </h3>
   <p>{{ task.day }}</p>
 </div>
+
+<!-- 
+  Correct but weird
+  - ngClass="{{ task.reminder ? 'reminder' : '' }}"
+  - [ngClass]="{ reminder: task.reminder }"
+ -->
