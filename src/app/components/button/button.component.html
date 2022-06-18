@@ -1,1 +1,27 @@
-<p>button works!</p>
+<!-- <button
+  type="button"
+  value="{{ btnValue }}"
+  ngClass="{{ btnClass }}"
+  (click)="btnClicked()"
+></button> -->
+
+<button
+  [ngStyle]="{ 'background-color': color }"
+  ngClass="{{ btnClass }}"
+  (click)="btnClicked()"
+>
+  {{ btnValue }}
+</button>
+<!-- 
+  Correct usage:
+  - ngClass="{{ btnClass }}" 
+  - class="{{ btnClass }}"
+  - [ngClass]="btnClass"
+  - [class]="btnClass"
+
+  Wrong usage:
+
+  - class="btnClass"
+  - ngClass="btnClass"
+  - value="{{ btnValue }}"
+ -->

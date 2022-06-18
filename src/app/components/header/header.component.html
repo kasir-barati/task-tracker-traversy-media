@@ -1,3 +1,21 @@
 <header>
   <h1>{{ title }}</h1>
+  <!-- <app-button
+    (btnClick)="addNewTask()"
+    btnValue="Add"
+    btnClass="btn btn-green"
+  >
+  </app-button> -->
+  <app-button
+    color="green"
+    btnValue="Add"
+    btnClass="btn"
+    (btnClick)="toggleAddTask()"
+  ></app-button>
 </header>
+
+<!-- 
+  Correct usage: 
+  - btnClass="btn"
+  - [btnClass]="true ? 'btn' : ''"
+ -->
