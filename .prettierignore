@@ -2,6 +2,8 @@
 **/*.yaml
 **/*node_modules*
 
+db.json
+
 # Compiled output
 /dist
 /tmp

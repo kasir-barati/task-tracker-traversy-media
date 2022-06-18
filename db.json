@@ -17,6 +17,12 @@
       "text": "Doctors Appointment",
       "day": "May 5th at 20:30pm",
       "reminder": false
+    },
+    {
+      "text": "asdsd",
+      "day": "sdss",
+      "reminder": true,
+      "id": 4
     }
   ]
 }

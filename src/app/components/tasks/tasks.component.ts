@@ -23,7 +23,7 @@ export class TasksComponent implements OnInit {
         console.error(error);
       },
       complete: () => {
-        console.info('Tasks gotten');
+        console.info('Fetching tasks process completed!');
       },
     });
   }
@@ -39,7 +39,7 @@ export class TasksComponent implements OnInit {
         console.error(error);
       },
       complete: () => {
-        console.info('Task delete process completed');
+        console.info('Task delete process completed!');
       },
     });
   }
@@ -58,7 +58,21 @@ export class TasksComponent implements OnInit {
         console.error(error);
       },
       complete: () => {
-        console.info('Task updated');
+        console.info('Task update process completed!');
+      },
+    });
+  }
+
+  onAddTask(task: Partial<Task>) {
+    this.taskService.addTask(task).subscribe({
+      next: (task) => {
+        this.tasks.push(task);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+      complete: () => {
+        console.info('Task add process completed!');
       },
     });
   }

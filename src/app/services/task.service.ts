@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 
 import { Task } from '../task';
 
+const headers = new HttpHeaders({
+  'content-type': 'application/json',
+});
+
 @Injectable({
   providedIn: 'root',
 })
@@ -28,10 +32,16 @@ export class TaskService {
         reminder: !task.reminder,
       },
       {
-        headers: new HttpHeaders({
-          'content-type': 'application/json',
-        }),
+        headers,
       },
+    );
+  }
+
+  addTask(task: Partial<Task>): Observable<Task> {
+    return this.httpClient.post<Task>(
+      this.baseUrl,
+      { ...task },
+      { headers },
     );
   }
 }
