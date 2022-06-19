@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
     TasksComponent,
     AddTaskComponent,
     AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
