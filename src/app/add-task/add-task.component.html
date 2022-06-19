@@ -1,4 +1,9 @@
-<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="showAddTask"
+  class="add-form"
+  [formGroup]="addTaskFormGroup"
+  (ngSubmit)="onSubmit(addTaskFormGroup.value)"
+>
   <div class="form-control">
     <label for="text">text</label>
     <input
@@ -6,7 +11,7 @@
       name="text"
       id="text"
       placeholder="Enter task text"
-      [(ngModel)]="text"
+      formControlName="text"
     />
   </div>
   <div class="form-control">
@@ -16,7 +21,7 @@
       name="day"
       id="day"
       placeholder="Enter task day and time!"
-      [(ngModel)]="day"
+      formControlName="day"
     />
   </div>
   <div class="form-control form-control-check">
@@ -25,8 +30,13 @@
       type="checkbox"
       name="reminder"
       id="reminder"
-      [(ngModel)]="reminder"
+      formControlName="reminder"
     />
   </div>
-  <input type="submit" value="Save task!" class="btn btn-block" />
+  <input
+    type="submit"
+    value="Save task!"
+    class="btn btn-block"
+    [disabled]="!addTaskFormGroup.valid"
+  />
 </form>

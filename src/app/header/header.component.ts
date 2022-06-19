@@ -11,7 +11,7 @@ import { UiService } from '@shared/services/ui.service';
 })
 export class HeaderComponent implements OnInit {
   public title: string = 'Task Tracker';
-  showAddTask: boolean;
+  showAddTask: boolean = true;
   subscription: Subscription;
 
   constructor(private uiService: UiService, private router: Router) {

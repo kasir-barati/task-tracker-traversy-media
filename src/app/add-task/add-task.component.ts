@@ -4,10 +4,12 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { UiService } from '@shared/services/ui.service';
 import { Task } from '../task/task.model';
+import { isBoolean } from '@shared/validators/is-boolean.validator';
 
 @Component({
   selector: 'app-add-task',
@@ -15,14 +17,16 @@ import { Task } from '../task/task.model';
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent implements OnInit {
-  day: string;
-  text: string;
-  reminder: boolean = false;
-  @Output() onAddTask = new EventEmitter<Partial<Task>>();
-  showAddTask: boolean = false;
-  subscription: Subscription;
+  public addTaskFormGroup: FormGroup;
+  public taskTextPattern: RegExp;
+  @Output() public onAddTask = new EventEmitter<Partial<Task>>();
+  public showAddTask: boolean = false;
+  public subscription: Subscription;
 
-  constructor(private uiService: UiService) {
+  constructor(
+    private uiService: UiService,
+    private formBuilder: FormBuilder,
+  ) {
     this.subscription = this.uiService.onToggle().subscribe({
       next: (value) => {
         this.showAddTask = value;
@@ -36,23 +40,43 @@ export class AddTaskComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.taskTextPattern = /^[\w\d\S\s]+$/i;
 
-  onSubmit() {
-    if (!this.text) {
-      alert('Please enter text');
-      return;
-    }
+    /**
+     * The g flag will cause marking the form valid and invalid by each time that you type something new
+     *
+     * Correct usage:
+     * - /^[\w\d\S\s]+$/i
+     *
+     * Wrong usage:
+     * - /^[\w\d\S\s]+$/gi
+     */
+    this.addTaskFormGroup = this.formBuilder.group({
+      text: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.maxLength(100),
+          Validators.pattern(this.taskTextPattern),
+        ]),
+      ],
+      day: [''],
+      reminder: [false, Validators.compose([isBoolean])],
+    });
 
-    const newTask: Partial<Task> = {
-      text: this.text,
-      day: this.day,
-      reminder: this.reminder,
-    };
+    /**
+     * Correct usage:
+     * - text: ['', [Validators.required, Validators.maxLength(100),Validators.pattern(this.taskTextPattern)]]
+     * - text: ['', Validators.compose([Validators.required, Validators.maxLength(100),Validators.pattern(this.taskTextPattern)])]
+     * Wrong usage:
+     * - ref: https://stackoverflow.com/a/55064205/8784518, https://stackoverflow.com/a/61953637/8784518
+     * - text: ['', Validators.required, Validators.maxLength(100),Validators.pattern(this.taskTextPattern)]
+     */
+  }
 
+  onSubmit(newTask: Partial<Task>) {
     this.onAddTask.emit(newTask);
-    this.text = '';
-    this.day = '';
-    this.reminder = false;
+    this.addTaskFormGroup.reset({ day: '', reminder: false });
   }
 }
