@@ -4,15 +4,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ButtonComponent } from './components/button/button.component';
-import { TaskComponent } from './components/task/task.component';
-import { TasksComponent } from './components/tasks/tasks.component';
+import { HeaderComponent } from './header/header.component';
+import { ButtonComponent } from './button/button.component';
+import { TaskComponent } from './task/task.component';
+import { TasksComponent } from './tasks/tasks.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AddTaskComponent } from './components/add-task/add-task.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
-import { AboutComponent } from './components/about/about.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [

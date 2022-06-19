@@ -6,8 +6,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { TaskService } from 'src/app/services/task.service';
-import { UiService } from 'src/app/services/ui.service';
+import { UiService } from 'src/app/shared/services/ui.service';
 import { Task } from 'src/app/task';
 
 @Component({
@@ -23,10 +22,7 @@ export class AddTaskComponent implements OnInit {
   showAddTask: boolean = false;
   subscription: Subscription;
 
-  constructor(
-    private taskService: TaskService,
-    private uiService: UiService,
-  ) {
+  constructor(private uiService: UiService) {
     this.subscription = this.uiService.onToggle().subscribe({
       next: (value) => {
         this.showAddTask = value;
