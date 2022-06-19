@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { aboutRoutes } from './about/about.routes';
 
-import { AboutComponent } from './about/about.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { tasksRoutes } from './tasks/tasks.routes';
 
-const routes: Routes = [
-  { path: '', component: TasksComponent },
-  { path: 'about', component: AboutComponent },
-];
+const routes: Routes = [...tasksRoutes, ...aboutRoutes];
 
 /**
  * Correct usage:
