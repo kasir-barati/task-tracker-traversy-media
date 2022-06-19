@@ -16,15 +16,15 @@ import { Task } from '../task/task.model';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
-  @Output() onDeleteTask = new EventEmitter();
-  @Output() onToggleTaskReminder = new EventEmitter();
+  @Output() onDeleteTask = new EventEmitter<Task>();
+  @Output() onToggleTaskReminder = new EventEmitter<Task>();
   faTimes = faTimes;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  deleteTaskClicked(task: Task) {
+  onDelete(task: Task) {
     this.onDeleteTask.emit(task);
   }
 

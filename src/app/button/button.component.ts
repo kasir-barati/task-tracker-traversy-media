@@ -14,15 +14,17 @@ import {
 export class ButtonComponent implements OnInit {
   @Input() btnValue: string;
   @Input() btnClass: string;
+  @Input() btnType: string;
+  @Input() btnDisabled: boolean;
   @Input() color: string;
-  @Output() btnClick = new EventEmitter();
+  @Output() onBtnClick = new EventEmitter<void>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  btnClicked() {
-    this.btnClick.emit();
+  onClick() {
+    this.onBtnClick.emit();
   }
 }
 

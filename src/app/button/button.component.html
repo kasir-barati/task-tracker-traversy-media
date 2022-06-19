@@ -8,7 +8,9 @@
 <button
   [ngStyle]="{ 'background-color': color }"
   ngClass="{{ btnClass }}"
-  (click)="btnClicked()"
+  (click)="onClick()"
+  [type]="btnType"
+  [disabled]="btnDisabled"
 >
   {{ btnValue }}
 </button>

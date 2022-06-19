@@ -1,0 +1,8 @@
+<ng-container *ngIf="errors">
+  <ng-container
+    class="text-danger"
+    *ngFor="let error of errors | jsonEntries"
+  >
+    {{ error[0] === 'message' ? error[1] : undefined }}
+  </ng-container>
+</ng-container>
