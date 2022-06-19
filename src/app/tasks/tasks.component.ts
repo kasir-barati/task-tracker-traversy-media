@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TaskService } from 'src/app/services/task.service';
+import { TasksService } from './tasks.service';
 import { Task } from 'src/app/task';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
-  providers: [TaskService],
+  providers: [TasksService],
 })
 export class TasksComponent implements OnInit {
   tasks: Task[];
 
-  constructor(private taskService: TaskService) {}
+  constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe({
+    this.tasksService.getTasks().subscribe({
       next: (tasks) => {
         this.tasks = tasks;
       },
@@ -29,7 +29,7 @@ export class TasksComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    this.taskService.deleteTaskById(task.id).subscribe({
+    this.tasksService.deleteTaskById(task.id).subscribe({
       next: () => {
         this.tasks = this.tasks.filter(
           (oldTask) => oldTask.id !== task.id,
@@ -45,7 +45,7 @@ export class TasksComponent implements OnInit {
   }
 
   onToggleTaskReminder(task: Task) {
-    this.taskService.updateTaskReminder(task).subscribe({
+    this.tasksService.updateTaskReminder(task).subscribe({
       next: (updatedTask) => {
         /**
          * @summary
@@ -64,7 +64,7 @@ export class TasksComponent implements OnInit {
   }
 
   onAddTask(task: Partial<Task>) {
-    this.taskService.addTask(task).subscribe({
+    this.tasksService.addTask(task).subscribe({
       next: (task) => {
         this.tasks.push(task);
       },
@@ -80,7 +80,7 @@ export class TasksComponent implements OnInit {
 
 /**
  * Wrong usage:
- * this.taskService.getTasks().subscribe(
+ * this.tasksService.getTasks().subscribe(
  *   (tasks) => {
  *     this.tasks = tasks;
  *   },
@@ -95,5 +95,5 @@ export class TasksComponent implements OnInit {
 
 /**
  * IDK why, but this is not necessary
- * - providers: [TaskService]
+ * - providers: [TasksService]
  */

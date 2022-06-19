@@ -11,7 +11,7 @@ const headers = new HttpHeaders({
 @Injectable({
   providedIn: 'root',
 })
-export class TaskService {
+export class TasksService {
   private baseUrl = 'http://localhost:5000/tasks';
   constructor(private httpClient: HttpClient) {}
 
