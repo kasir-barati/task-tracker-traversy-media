@@ -15,10 +15,10 @@ import { Task } from '../task/task.model';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
-  @Input() public task: Task;
-  @Output() public onDeleteTask = new EventEmitter<Task>();
-  @Output() public onToggleTaskReminder = new EventEmitter<Task>();
-  public faTimes = faTimes;
+  @Input() task: Task;
+  @Output() onDeleteTask = new EventEmitter<Task>();
+  @Output() onToggleTaskReminder = new EventEmitter<Task>();
+  faTimes = faTimes;
 
   constructor() {}
 
