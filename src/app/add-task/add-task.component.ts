@@ -17,11 +17,11 @@ import { isBoolean } from '@shared/validators/is-boolean.validator';
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent implements OnInit {
-  public addTaskFormGroup: FormGroup;
-  public taskTextPattern: RegExp;
-  @Output() public onAddTask = new EventEmitter<Partial<Task>>();
-  public showAddTask: boolean = false;
-  public subscription: Subscription;
+  addTaskFormGroup: FormGroup;
+  taskTextPattern: RegExp;
+  @Output() onAddTask = new EventEmitter<Partial<Task>>();
+  showAddTask: boolean = false;
+  subscription: Subscription;
 
   constructor(
     private uiService: UiService,

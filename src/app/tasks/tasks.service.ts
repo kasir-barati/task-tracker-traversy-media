@@ -48,6 +48,8 @@ export class TasksService {
 
 /**
  * Correct usage:
+ * CORS origin error
+ *
  * - private baseUrl = 'http://localhost:5000/tasks';
  *
  * Wrong usage:

@@ -10,7 +10,7 @@ import { UiService } from '@shared/services/ui.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  public title: string = 'Task Tracker';
+  title: string = 'Task Tracker';
   showAddTask: boolean = true;
   subscription: Subscription;
 
@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  toggleAddTask() {
+  onToggleAddTask() {
     this.uiService.toggleAddTask();
   }
 
