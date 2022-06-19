@@ -10,7 +10,7 @@
     "format": "prettier -w . -u",
     "start:mock-server": "json-server --watch db.json --port 5000"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^14.0.0",
     "@angular/common": "^14.0.0",
@@ -43,5 +43,15 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "prettier": "^2.7.1",
     "typescript": "~4.7.2"
-  }
+  },
+  "keywords": [
+    "angular",
+    "tutorial",
+    "proposal",
+    "poc",
+    "tutorial-exercise",
+    "angular-boilerplate",
+    "tutorial-sourcecode",
+    "task-tracker"
+  ]
 }
