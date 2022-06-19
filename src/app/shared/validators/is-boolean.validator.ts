@@ -1,14 +1,15 @@
-import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { ValidatorFn } from '@angular/forms';
 
-export function isBoolean(
-  control: AbstractControl,
-): ValidationErrors | null {
-  if (typeof control.value === 'boolean') {
-    return null;
-  }
+export function isBoolean(message: string): ValidatorFn {
+  return (control) => {
+    if (typeof control.value === 'boolean') {
+      return null;
+    }
 
-  return {
-    invalidBoolean: true,
+    return {
+      invalidBoolean: true,
+      message,
+    };
   };
 }
 

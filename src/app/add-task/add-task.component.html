@@ -20,10 +20,11 @@
         (addTaskFormGroup.get('text')?.dirty ||
           addTaskFormGroup.get('text')?.touched)
       "
-    ></div>
-    <app-validation-errors
-      [errors]="addTaskFormGroup.get('text')!.errors!"
-    ></app-validation-errors>
+    >
+      <app-validation-errors
+        [errors]="addTaskFormGroup.get('text')!.errors!"
+      ></app-validation-errors>
+    </div>
   </div>
   <div class="form-control">
     <label for="day">Day and time</label>

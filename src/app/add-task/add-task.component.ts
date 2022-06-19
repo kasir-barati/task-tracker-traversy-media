@@ -10,6 +10,9 @@ import { Subscription } from 'rxjs';
 import { UiService } from '@shared/services/ui.service';
 import { Task } from '../task/task.model';
 import { isBoolean } from '@shared/validators/is-boolean.validator';
+import { required } from '@shared/validators/required.validator';
+import { maxLength } from '@shared/validators/max-length.validator';
+import { pattern } from '@shared/validators/pattern.validator';
 
 @Component({
   selector: 'app-add-task',
@@ -55,14 +58,17 @@ export class AddTaskComponent implements OnInit {
     this.addTaskFormGroup = this.formBuilder.group({
       text: [
         '',
-        Validators.compose([
-          Validators.required,
-          Validators.maxLength(100),
-          Validators.pattern(this.taskTextPattern),
-        ]),
+        [
+          required('Please enter text.'),
+          maxLength(100, 'Text cannot be more than 100 character.'),
+          pattern(
+            this.taskTextPattern,
+            'Text can only contain letters, digits, special and characters',
+          ),
+        ],
       ],
       day: [''],
-      reminder: [false, Validators.compose([isBoolean])],
+      reminder: [false, [isBoolean('Reminder should be boolean')]],
     });
 
     /**
