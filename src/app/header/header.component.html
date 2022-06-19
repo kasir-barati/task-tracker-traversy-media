@@ -11,6 +11,8 @@
     color="{{ showAddTask ? 'green' : 'red' }}"
     btnValue="{{ showAddTask ? 'Add' : 'Close' }}"
     btnClass="btn"
+    btnType="button"
+    [btnDisabled]="false"
     (onBtnClick)="onToggleAddTask()"
   ></app-button>
 </header>

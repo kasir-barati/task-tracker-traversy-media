@@ -33,10 +33,11 @@
       formControlName="reminder"
     />
   </div>
-  <input
-    type="submit"
-    value="Save task!"
-    class="btn btn-block"
-    [disabled]="!addTaskFormGroup.valid"
-  />
+  <app-button
+    btnValue="Save task!"
+    btnClass="btn btn-block"
+    btnType="submit"
+    [btnDisabled]="!addTaskFormGroup.valid"
+  >
+  </app-button>
 </form>

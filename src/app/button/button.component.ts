@@ -14,6 +14,8 @@ import {
 export class ButtonComponent implements OnInit {
   @Input() btnValue: string;
   @Input() btnClass: string;
+  @Input() btnType: string;
+  @Input() btnDisabled: boolean;
   @Input() color: string;
   @Output() onBtnClick = new EventEmitter<void>();
 
