@@ -13,6 +13,8 @@ import { TasksComponent } from './tasks/tasks.component';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { ValidationErrorsComponent } from './shared/validation-errors/validation-errors.component';
+import { JsonEntriesPipe } from './shared/pipes/json-entries.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     AddTaskComponent,
     AboutComponent,
     FooterComponent,
+    ValidationErrorsComponent,
+    JsonEntriesPipe,
   ],
   imports: [
     BrowserModule,

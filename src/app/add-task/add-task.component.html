@@ -13,6 +13,17 @@
       placeholder="Enter task text"
       formControlName="text"
     />
+    <div
+      *ngIf="
+        addTaskFormGroup.get('text')?.invalid &&
+        addTaskFormGroup.get('text')?.errors &&
+        (addTaskFormGroup.get('text')?.dirty ||
+          addTaskFormGroup.get('text')?.touched)
+      "
+    ></div>
+    <app-validation-errors
+      [errors]="addTaskFormGroup.get('text')!.errors!"
+    ></app-validation-errors>
   </div>
   <div class="form-control">
     <label for="day">Day and time</label>
@@ -32,6 +43,18 @@
       id="reminder"
       formControlName="reminder"
     />
+    <div
+      *ngIf="
+        addTaskFormGroup.get('reminder')?.errors &&
+        addTaskFormGroup.get('reminder')?.invalid &&
+        (addTaskFormGroup.get('reminder')?.touched ||
+          addTaskFormGroup.get('reminder')?.dirty)
+      "
+    >
+      <app-validation-errors
+        [errors]="addTaskFormGroup.get('reminder')!.errors!"
+      ></app-validation-errors>
+    </div>
   </div>
   <app-button
     btnValue="Save task!"
