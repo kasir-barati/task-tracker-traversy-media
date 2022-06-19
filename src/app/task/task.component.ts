@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-import { Task } from 'src/app/task';
+import { Task } from '../task/task.model';
 
 @Component({
   selector: 'app-task',

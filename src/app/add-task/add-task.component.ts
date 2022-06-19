@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { UiService } from 'src/app/shared/services/ui.service';
-import { Task } from 'src/app/task';
+import { UiService } from '@shared/services/ui.service';
+import { Task } from '../task/task.model';
 
 @Component({
   selector: 'app-add-task',
