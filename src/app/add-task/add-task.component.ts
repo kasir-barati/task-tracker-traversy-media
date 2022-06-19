@@ -21,7 +21,6 @@ import { pattern } from '@shared/validators/pattern.validator';
 })
 export class AddTaskComponent implements OnInit {
   addTaskFormGroup: FormGroup;
-  taskTextPattern: RegExp;
   @Output() onAddTask = new EventEmitter<Partial<Task>>();
   showAddTask: boolean = false;
   subscription: Subscription;
@@ -44,8 +43,6 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.taskTextPattern = /^[\w\d\S\s]+$/i;
-
     /**
      * The g flag will cause marking the form valid and invalid by each time that you type something new
      *
@@ -62,7 +59,7 @@ export class AddTaskComponent implements OnInit {
           required('Please enter text.'),
           maxLength(100, 'Text cannot be more than 100 character.'),
           pattern(
-            this.taskTextPattern,
+            /^[\w\d\S\s]+$/i,
             'Text can only contain letters, digits, special and characters',
           ),
         ],
