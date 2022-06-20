@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { ValidationErrorsComponent } from './shared/validation-errors/validation-errors.component';
 import { JsonEntriesPipe } from './shared/pipes/json-entries.pipe';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { JsonEntriesPipe } from './shared/pipes/json-entries.pipe';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

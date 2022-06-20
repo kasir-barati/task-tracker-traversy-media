@@ -20,8 +20,7 @@
     "lib": ["es2020", "dom"],
     "strictPropertyInitialization": false,
     "paths": {
-      "@shared/*": ["src/app/shared/*"],
-      "@app/*": ["src/app/*"]
+      "@shared/*": ["src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {
