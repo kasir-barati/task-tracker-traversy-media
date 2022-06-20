@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Task } from '../task/task.model';
+import { environment } from 'src/environments/environment';
 
 const headers = new HttpHeaders({
   'content-type': 'application/json',
@@ -12,8 +13,10 @@ const headers = new HttpHeaders({
   providedIn: 'root',
 })
 export class TasksService {
-  private baseUrl = 'http://localhost:5000/tasks';
-  constructor(private httpClient: HttpClient) {}
+  private baseUrl: string;
+  constructor(private httpClient: HttpClient) {
+    this.baseUrl = environment.apiUrl.concat('/tasks');
+  }
 
   getTasks(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(this.baseUrl);
