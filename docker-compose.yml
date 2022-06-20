@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  angular:
+    image: a:a
+    container_name: task-tracker
+    network:
+      - external-traefik-nginx-network
+    restart: always
+
+networks:
+  # dockerized Traefik/Nginx network.
+  external-traefik-nginx-network:
+    external:
+      name: external-traefik-nginx-network

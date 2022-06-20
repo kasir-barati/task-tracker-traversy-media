@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  angular:
+    image: node:18.2.0-alpine3.15
+    container_name: task-tracker-dev
+    ports:
+      - 4200:4200
+      - 5000:5000
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: .
+        target: /app
+        volume:
+          nocopy: true
+    restart: always
+    command: 
+      sh -c '(npm run start:mock-server &) && npm start'

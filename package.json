@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "format": "prettier -w . -u",
-    "start:mock-server": "json-server --watch db.json --port 5000"
+    "start:mock-server": "json-server --watch db.json --port 5000 --host 0.0.0.0",
+    "start:dev": "docker-compose -f dev.docker-compose.yml up",
+    "stop:dev": "docker-compose -f dev.docker-compose.yml down --remove-orphans"
   },
   "private": false,
   "dependencies": {
