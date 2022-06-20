@@ -18,6 +18,7 @@ import { ValidationErrorsComponent } from './shared/validation-errors/validation
 import { JsonEntriesPipe } from './shared/pipes/json-entries.pipe';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     ValidationErrorsComponent,
     JsonEntriesPipe,
     ContactUsComponent,
+    MainMenuComponent,
   ],
   imports: [
     BrowserModule,
