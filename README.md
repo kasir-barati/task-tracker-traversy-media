@@ -10,3 +10,9 @@
 1. `pnpm i`
 2. `pnpm start:mock-server`
 3. `pnpm start`
+
+## Dockerized app
+
+- A multi-stage Docker build
+  - Smaller container
+  - Automated works
