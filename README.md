@@ -21,6 +21,10 @@
 - Here is the steps if you wanna create a container from it:
   1. Update the network section in the `docker-compose.yml` to put it in the right network
   2. `docker-compose up -d`
+- Here is the steps to start app in dev env:
+  1. `pnpm i`
+  2. `pnpm start:dev`
+  - To stop app in dev env issue this command in your terminal: `pnpm stop:dev`
 
 ### Worthy details about dockerized app for prod env:
 
