@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ValidationErrorsComponent } from './shared/validation-errors/validation-errors.component';
 import { JsonEntriesPipe } from './shared/pipes/json-entries.pipe';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
     FooterComponent,
     ValidationErrorsComponent,
     JsonEntriesPipe,
+    ContactUsComponent,
   ],
   imports: [
     BrowserModule,

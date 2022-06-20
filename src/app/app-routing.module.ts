@@ -3,8 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { aboutRoutes } from './about/about.routes';
 import { tasksRoutes } from './tasks/tasks.routes';
+import { contactUsRoutes } from './contact-us/contact-us-routes';
 
-const routes: Routes = [...tasksRoutes, ...aboutRoutes];
+const routes: Routes = [
+  ...tasksRoutes,
+  ...aboutRoutes,
+  ...contactUsRoutes,
+];
 
 /**
  * Correct usage:
