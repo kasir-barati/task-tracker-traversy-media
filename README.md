@@ -35,3 +35,8 @@
 
 - First I just tried to stick to the `localhost` in Angular app and our fake backend. But it did not pan out. Why? TBH I'm not quite sure but maybe [this stackoverflow Q&A helps](https://stackoverflow.com/a/26553296/8784518). Please feel free to tell me if you know the answer.
 - The same problem happened with our `mock-server` and I changed the `localhost` to `0.0.0.0`
+- Do not worry about this section in `dev.docker-compose.yml` because AFAIK - based on experience not documentation - this command will be executed in the `WORKDIR`/`working_dir`:
+  <pre>
+  command:
+    sh -c '(npm run start:mock-server &) && npm start'
+  </pre>
